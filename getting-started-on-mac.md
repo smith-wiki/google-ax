@@ -107,6 +107,8 @@ kubectl --context kind-kind get node \
 
 On an M-series Mac, expect `arm64`. The script creates a local registry on `localhost:5001`, enables the certificate beta APIs used by Substrate and AX, and configures kind's containerd to reach that registry ([cluster configuration](https://github.com/agent-substrate/substrate/blob/672533541dbf/hack/create-kind-cluster.sh#L53-L126), [registry wiring](https://github.com/agent-substrate/substrate/blob/672533541dbf/hack/create-kind-cluster.sh#L194-L222)). Lack of `/dev/kvm` is explicitly non-fatal for gVisor. Do not pursue the microVM path on an M2: Substrate's Apple Silicon guide requires M3 or later for nested virtualization ([gVisor fallback](https://github.com/agent-substrate/substrate/blob/672533541dbf/hack/create-kind-cluster.sh#L72-L85), [M2 limitation](https://github.com/agent-substrate/substrate/blob/22ba860e0f32e20713165b96abd81f6f96da620c/docs/dev/microvm-local.md#L89-L100)).
 
+The cluster-creation script deletes an existing kind cluster of the same name before recreating it ([source](https://github.com/agent-substrate/substrate/blob/672533541dbf/hack/create-kind-cluster.sh#L128-L147)); keep anything you need out of that cluster.
+
 ### 3. Install Substrate and actual worker capacity
 
 ```bash
