@@ -141,6 +141,7 @@ docker push localhost:5001/ax-task-runner:mac-arm64
 
 Capture the digest-pinned reference and verify the local image architecture:
 
+{% raw %}
 ```bash
 export TASK_IMAGE="$(
   docker image inspect --format '{{index .RepoDigests 0}}' \
@@ -153,6 +154,7 @@ test "$(
 )" = arm64
 printf '%s\n' "${TASK_IMAGE}"
 ```
+{% endraw %}
 
 A digest is mandatory: the AX-pinned Substrate revision requires a digest-pinned image reference ([validator](https://github.com/agent-substrate/substrate/blob/672533541dbf/cmd/ateapi/internal/controlapi/actor_template.go)). This also avoids AX's unpinned default image ([constant](https://github.com/google/ax/blob/e09ed1bc5463ad4b5ca88f755a6e1e2005b3c7b7/pkg/apis/v1alpha1/types.go#L30-L40)). Stop here if the image does not build, push, or report arm64; the checked-in remote digest is not proven arm64-compatible.
 
