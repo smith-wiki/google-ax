@@ -10,7 +10,7 @@
 |---|---:|---|
 | Learn the CLI and manifest shape | No | Build `ax`; run `ax help` and `ax version`. Commands that read/write resources still need an AX server. |
 | Exercise runner metadata, readiness, environment, and child-command behavior | No | Run `ax-task-runner` directly with local YAML files. |
-| Execute `ax apply`, create a sandbox, or try suspend/resume/`ax ssh` | Yes | Use the pinned Substrate revision in a local kind cluster, after the adaptations below. |
+| Execute `ax apply`, create a sandbox, or try suspend/resume/`ax ssh` | Yes | Use [an existing remote cluster if it qualifies](remote-k3s.md); otherwise consider the local kind experiment below. |
 
 ## Track 1: the smallest useful local experiment
 
@@ -69,7 +69,7 @@ The checkpoints are HTTP `200`, the submitted Task YAML, and `runner reached the
 
 ## Track 2: a cautious kind experiment
 
-This path is **source-supported but not verified end to end here**. Treat each checkpoint as a gate.
+This path is **source-supported but not verified end to end here**. If you already have remote k3s, start with [its compatibility card](remote-k3s.md) instead; local kind is not required on your Mac. Treat each checkpoint below as a gate.
 
 ### 1. Install and check host tools
 
