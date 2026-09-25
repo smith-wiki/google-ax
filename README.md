@@ -12,5 +12,6 @@
 6. **2026-09-25 — What is Agent Substrate underneath AX?** A Kubernetes-backed runtime that maps logical sandboxed actors onto warm worker pods and manages their lifecycle and routing. [Agent Substrate explained](what-is-agent-substrate.md).
 7. **2026-09-25 — Do I need a separate agent brain, and how does it talk to AX?** Your agent program supplies the brain, whether inside or outside AX; a trusted client calls AX's typed gRPC task API, while your application handles results. [Brain-to-AX interface](brain-to-ax-interface.md).
 8. **2026-09-25 — What would three agents editing a repository actually do through AX/Substrate?** Three isolated Tasks edit separate files in separate clones; a trusted coordinator receives their patches and merges them. [Three-agent example](three-agents-edit-one-repo.md); [worked manifest](three-agents-edit-one-repo-guide.md).
+9. **2026-09-25 — Are AX Tasks deterministic code or agent operations?** Either: each Task runs the command you supply, which may be an ordinary script, an LLM-powered agent, or both in sequence. [A Task runs a command](ax-task-runs-a-command.md).
 
 The cluster-backed paths are source-grounded plans, not reports of a working deployment. AX [warns that its concepts and protocols may change before a stable release](https://github.com/google/ax/blob/e09ed1bc5463ad4b5ca88f755a6e1e2005b3c7b7/README.md).
